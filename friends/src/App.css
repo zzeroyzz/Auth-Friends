@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+.App {
+  text-align: center;
+  background-image: url("https://i.imgur.com/56NyPGk.jpg?1");
+  padding-bottom: 6%;
+  min-height: 100%;
+  color:rgb(179, 151, 151);
+  font-family: 'Do Hyeon', sans-serif;  
+}
+.App-header{
+  background-color: rgba(196, 31, 196, 0.164);
+}
+.App-header h1{
+padding-bottom: 2%;
+color:white;
+}
+.login-form{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 250%;
+  justify-content: center;
+  margin-left: 35rem;
+  margin-top: 15%;
+} 
+.login-form form{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 250%;
+  justify-content: center;
+  margin-top:-15% ;
+  margin-left: 35%;
+  margin-bottom: 30%;
+} 
+.nav {
+  display:flex;
+  justify-content: flex-end;
+  margin-right: 5rem;
+
+}
+.nav a{
+text-decoration: none;
+padding-left: 2%;
+
+}
+
+.links{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 70%;
+  font-size: 2rem;
+
+}
+label{
+  font-size: 3rem;
+}
+input{
+  text-align: center;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size:2rem;
+}
+button{
+  margin-top: 15%;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgb(205, 169, 230);
+  padding: 15px 40px;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+.add-friend {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 80%;
+} 
+
+
+section {
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  display: flex;
+
+
+}
+.new-added-friends{
+  background-color: rgba(177, 139, 139, 0.455);
+  margin-top: 5rem;
+  color:white
+  
+}
+.friend-form{
+  display: flex;
+  flex-direction:column;
+  padding: 5%;
+  padding-top: 30%;
+
+}
