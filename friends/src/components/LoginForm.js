@@ -29,13 +29,13 @@ const handleSubmit = (e) =>{
     e.preventDefault();
     axiosWithAuth()
     .post("api/login",user.loginState)
-    .then(res => {
+    .then((res) => {
         console.log('kh: Login.js: login:res', res)
         window.localStorage.setItem('token',res.data.payload)
         history.push('/protected')
     })
     .catch(err =>{
-        console.error(err.response)
+        console.error(err.response, "login error")
     })
 }
 return(

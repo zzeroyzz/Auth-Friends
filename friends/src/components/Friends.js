@@ -18,7 +18,7 @@ const Friends = (props) =>{
         .catch((err) => console.log(err))
     }
 
-    const editChangess = (e) =>{
+    const editChanges = (e) =>{
         e.preventDefault();
         setEditFriends({
             ...editFriends,
@@ -26,7 +26,7 @@ const Friends = (props) =>{
         })
     }
 
-    const editFriends = (e) =>{
+    const editFriendsToggle = (e) =>{
         e.preventDefault()
         setEditToggle(true)
     }
@@ -81,7 +81,7 @@ const Friends = (props) =>{
                     <p>Age:&nbsp;{props.friend.age}</p>
                     <p>Email:&nbsp;{props.friend.email}</p>
                     <button onClick={deleteFriend}>Delete</button>
-                    <button onClick={editFriends}>Edit</button>
+                    <button onClick={editFriendsToggle}>Edit</button>
 
 
                 </div>

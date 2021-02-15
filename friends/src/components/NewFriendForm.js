@@ -5,27 +5,26 @@ import {axiosWithAuth} from "../utils/axiosWithAuth"
 const LoginForm = () =>{
 
 const [signup, setSignUp] = useState({
-    signupState:{
-    id: 1,
-    name: 'Joe',
-    age: 24,
-    email: 'joe@lambdaschool.com',
-    }
+    
+    name: '',
+    age: "",
+    email: '',
+    
 });
 
 const handleChanges =(e) =>{
     setSignUp({
-        signupState:{
-        ...signup.setSignUp,
+        
+        ...signup,
         [e.target.name] :e.target.value,
-        },
+        
     })
 }
 
 const handleSubmit = (e) =>{
     e.preventDefault();
     axiosWithAuth()
-    .post("/api/friends",signup.signupState)
+    .post("/api/friends",signup)
     .then(res => {
         console.log('kh: signupform.js: signupform:res', res)
     })
@@ -39,23 +38,28 @@ return(
         <input 
         type="text"
         name="name"
-        value={signup.signupState.name}
-        onchange={handleChanges}
+        value={signup.name}
+        onChange={handleChanges}
+        placeholder=" Joe"
         />
        <input 
         type="text"
         name="age"
-        value={signup.signupState.age}
-        onchange={handleChanges}
+        placeholder="24"
+
+        value={signup.age}
+        onChange={handleChanges}
         />
         <input 
         type="text"
         name="email"
-        value={signup.signupState.email}
-        onchange={handleChanges}
+        placeholder="joe@lambdaschool.com"
+
+        value={signup.email}
+        onChange={handleChanges}
         />
         
-        <button>Log in</button>
+        <button>Add Friend</button>
         </div>
     </form>
 )

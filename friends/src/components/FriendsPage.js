@@ -1,6 +1,7 @@
-import React from "react";
-import axiosWithAuth from "../utils/axiosWithAuth";
-
+import React, {useState, useEffect} from "react";
+import {axiosWithAuth} from "../utils/axiosWithAuth";
+import NewFriendForm from "./NewFriendForm";
+import Friends from "./Friends"
 const FriendsPage = ({refresh,setRefresh}) =>{
     const [friendsList, setFriendsList]= useState([]);
     const [friend, setFriend] =useState({ name:"",age:"",email:""})
@@ -46,7 +47,7 @@ const FriendsPage = ({refresh,setRefresh}) =>{
             />
             </section>
             <section>
-                {list.map((friend) =>{
+                {friendsList.map((friend) =>{
                     return <Friends key={friend.id} friend={friend} setFriendsList={setFriendsList} />
                 })}
             </section>
