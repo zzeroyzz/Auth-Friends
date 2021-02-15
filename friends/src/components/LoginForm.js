@@ -1,7 +1,7 @@
 import e from "cors";
 import React, {useState} from "react";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
-import {useHistory as history} from "react";
+import {useHistory } from "react-router-dom";
 
 
 
@@ -16,6 +16,7 @@ isLoading:false,
 
 });
 
+
 const handleChange = (e) => {
     setUser({
         loginState: {
@@ -24,6 +25,7 @@ const handleChange = (e) => {
       },
     });
   };
+  const history = useHistory();
 
 const handleSubmit = (e) =>{
     e.preventDefault();
@@ -32,7 +34,7 @@ const handleSubmit = (e) =>{
     .then((res) => {
         console.log('kh: Login.js: login:res', res)
         window.localStorage.setItem('token',res.data.payload)
-        history.push('/protected')
+        history.push('/friendslist')
     })
     .catch(err =>{
         console.error(err.response, "login error")
@@ -57,7 +59,7 @@ return(
         onChange={handleChange}
         value={user.loginState.password}
         />
-        <button>Log in</button>
+        <button type="submit">Log in</button>
         </div>
     </form>
 )

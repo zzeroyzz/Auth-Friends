@@ -7,29 +7,26 @@ import PrivateRoute from './components/PrivateRoute';
 import FriendsPage from './components/FriendsPage';
 
 function App() {
-
   const logout = () =>{
     localStorage.removeItem('token')
   }
 
   return (
+    
     <Router>
     <div className="App">
       <header className="App-header">
-        <h1>Pancakes & Friends</h1>
+       
       
      <div className ="nav">
-
-    
-          <Link to="/login">Login</Link>
-       
-            <Link onClick={logout}>Logout</Link>
-       
-        <Link to="/protected">Protected Page</Link>
+      <Link to="/login">Login</Link>
+      <Link onClick={logout}>Logout</Link>
+      <Link to="/friendslist">Friends</Link>
        </div>
+       <h1>Pancakes & Friends</h1>
        </header>
       <Switch>
-        <PrivateRoute exact path="/protected" component={FriendsPage} />
+        <PrivateRoute exact path="/friendslist" component={FriendsPage} />
         <Route path="/login" component={LoginForm} />
         <Route component={LoginForm} />
       </Switch>

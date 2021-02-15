@@ -34,13 +34,13 @@ const handleSubmit = (e) =>{
 }
 return(
     <form onSubmit={handleSubmit}>
-        <div className="login-form">
+        <div className="friend-form">
         <input 
         type="text"
         name="name"
         value={signup.name}
         onChange={handleChanges}
-        placeholder=" Joe"
+        placeholder="Pancake"
         />
        <input 
         type="text"
@@ -53,7 +53,7 @@ return(
         <input 
         type="text"
         name="email"
-        placeholder="joe@lambdaschool.com"
+        placeholder="grumpy_pancake@lambdaschool.com"
 
         value={signup.email}
         onChange={handleChanges}
