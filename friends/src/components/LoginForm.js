@@ -1,31 +1,37 @@
 import e from "cors";
 import React, {useState} from "react";
-import axiosWithAuth from "../utils/axiosWithAuth";
+import {axiosWithAuth} from "../utils/axiosWithAuth";
+import {useHistory as history} from "react";
 
-const loginState = {
-    username ="",
-    password=""
 
-}
 
 
 const LoginForm = () =>{
+const [user,setUser] = useState({
+    loginState:{
+        username:"",
+        password:""
+},
+isLoading:false,
 
-const [loginState,setLoginState] =useState(loginState);
+});
 
-const handleChanges =(e) =>{
-    setLoginState({
-    ...loginState,
-    [e.target.name]: e.target.value})
-}
+const handleChange = (e) => {
+    setUser({
+        loginState: {
+        ...user.loginState,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
 
 const handleSubmit = (e) =>{
     e.preventDefault();
     axiosWithAuth()
-    .post("/api/login",loginState)
+    .post("api/login",user.loginState)
     .then(res => {
         console.log('kh: Login.js: login:res', res)
-        localStorage.setItem('token',res.data.payload)
+        window.localStorage.setItem('token',res.data.payload)
         history.push('/protected')
     })
     .catch(err =>{
@@ -35,17 +41,21 @@ const handleSubmit = (e) =>{
 return(
     <form onSubmit={handleSubmit}>
         <div className="login-form">
+        <label>Username</label>
         <input 
         type="text"
         name="username"
-        value={loginState.username}
-        onchange={handleChanges}
+        onChange={handleChange}
+        placeholder="Enter Username"
+        value={user.loginState.username}
         />
+        <label>Password</label>
         <input 
+        placeholder="Enter Password"
         type="password"
         name="password"
-        value={loginState.password}
-        onchange={handleChanges}
+        onChange={handleChange}
+        value={user.loginState.password}
         />
         <button>Log in</button>
         </div>
